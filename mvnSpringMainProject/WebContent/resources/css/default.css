@@ -1,0 +1,16 @@
+/*.ui-widget, .ui-widget .ui-widget {
+	font-size: 90%;
+}
+
+.Panel {
+	width: 670px;
+	margin-left: 10px;
+	min-height: 380px;
+}
+
+h3, a {
+	font-family: Arial;
+	color: #333333;
+	cursor: pointer;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}*/

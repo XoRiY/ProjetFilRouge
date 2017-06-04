@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Editer Marque</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:outputLabel value="Nom de la marque" />
+		<h:inputText id="newMarque" title="Nom de la marque"
+			value="#{Catalogue.marque.marque}" required="true"
+			requiredMessage="Ce champ est obligatoire">
+			<f:validateLength minimum="3" maximum="50" />
+		</h:inputText>
+		<h:inputHidden id="oldMarque" value="#{catalogueBean.marque.marque}"/>
+		<br/>
+		<h:commandButton value="Enregistrer" action="#{catalogueBean.updateMarque}"/>
+	</h:form>
+
+</h:body>
+</html>

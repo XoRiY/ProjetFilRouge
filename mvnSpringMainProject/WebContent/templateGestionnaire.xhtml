@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Gestion des Piece</title>
+</h:head>
+<h:body>
+	<div id="top">
+		<ui:insert name="top">
+			<h:form>
+				<p:megaMenu style="margin-top:20px">
+					<p:submenu label="Pièces" icon="ui-icon-check">
+						<p:column>
+							<p:submenu label="Editer une pièce">
+								<p:menuitem value="Ajouter une pièce" url="/test"
+									icon="ui-icon-pencil" />
+								<p:menuitem value="Modifier une pièce"
+									url="http://www.prime.com.tr" icon="ui-icon-pencil" />
+								<p:menuitem value="Lier à un Appareil"
+									url="http://www.primefaces.org" icon="ui-icon-transfer-e-w" />
+							</p:submenu>
+						</p:column>
+
+						<p:column>
+							<p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin">
+								<p:menuitem value="Supprimer une pièce"
+									url="http://www.primefaces.org" icon="ui-icon-trash" />
+							</p:submenu>
+						</p:column>
+
+
+					</p:submenu>
+
+					<p:submenu label="Utilisateur" icon="ui-icon-document">
+
+						<p:column>
+							<p:submenu label="Sports.1">
+								<p:menuitem value="Chercher une pièce" action="search" />
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+
+							</p:submenu>
+							<p:submenu label="Sports.2">
+								<p:menuitem value="Chercher une pièce" action="search" />
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+
+					<p:submenu label="Entertainment" icon="ui-icon-pencil">
+						<p:column>
+							<p:submenu label="Entertainment.1">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+							<p:submenu label="Entertainment.2">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+						</p:column>
+
+						<p:column>
+							<p:submenu label="Entertainment.4" icon="ui-icon-help">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+							<p:submenu label="Entertainment.5">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+
+					<p:submenu label="Tech" icon="ui-icon-contact">
+						<p:column>
+							<p:submenu label="Tech.1">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+							<p:submenu label="Tech.2">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+						</p:column>
+
+						<p:column>
+							<p:submenu label="Tech.4">
+								<p:menuitem value="Compte Client" action="compteUtilisateur" />
+								<p:menuitem value="Compte Gestionnaire" action="gestionBoutique" />
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+				</p:megaMenu>
+			</h:form>
+		</ui:insert>
+	</div>
+	<div id="body">
+		<ui:insert name="body">
+		</ui:insert>
+	</div>
+	<div id="footer">
+		<ui:insert name="footer">
+			<h:form>
+				<h:commandLink value="Chercher une pièce" action="search" />
+				<br />
+				<h:commandLink value="Compte Client" action="compteUtilisateur" />
+				<br />
+				<h:commandLink value="Compte Gestionnaire" action="gestionBoutique" />
+				<br />
+			</h:form>
+		</ui:insert>
+	</div>
+</h:body>
+</html>

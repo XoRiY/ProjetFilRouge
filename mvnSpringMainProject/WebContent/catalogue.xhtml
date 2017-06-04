@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Catalogue</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<p:panel header="Vos Préférence" style="margin-bottom:10px;">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:selectOneMenu id="choixMarque" value="#{catalogue.marque}" required="true" requiredMessage="Ceci est requis">
+					<f:selectItem itemLabel="Sélectionner une Marque" noSelectionOption="true" />
+					<p:ajax listener="#{catalogue.onMarqueChange}"	update="choixType, choixMarque, choixPiece, choixAppareil" event="change" />
+					<f:selectItems value="#{catalogue.marques2}" var="mrq" itemLabel="#{mrq.marque}" itemValue="#{mrq.marque}" />
+					<f:converter converterId="marqueConverter" />
+				</h:selectOneMenu>
+
+				<br />
+				<h:selectOneMenu id="choixType" value="#{catalogue.type}">
+					<f:selectItem itemLabel="Type De la Marque"	noSelectionOption="true" />
+					<p:ajax listener="#{catalogue.onTypeChange}" update="choixType, choixMarque, choixPiece, choixAppareil"	event="change" />
+					<f:selectItems value="#{catalogue.types2}" var="typ" itemLabel="#{typ.type}" itemValue="#{typ.type}" />
+					<f:converter converterId="typeConverter" />
+
+				</h:selectOneMenu>
+				<br />
+				<h:selectOneMenu id="choixAppareil" value="#{catalogue.appareil}">
+					<f:selectItem itemLabel="Sélectionner un Appareil" noSelectionOption="true" />
+						<p:ajax listener="#{catalogue.onModeleChange}" update="choixType, choixMarque, choixPiece, choixAppareil" event="change" />
+					<f:selectItems value="#{catalogue.appareils2}" var="app" itemLabel="#{app.referenceAppareil}"
+						itemValue="#{app.referenceAppareil}" />
+				</h:selectOneMenu>
+				<br />
+				<h:selectOneMenu id="choixPiece" value="#{catalogue.piece}">
+					<f:selectItem itemLabel="Sélectionner une Piece" noSelectionOption="true" />
+					<f:selectItems value="#{catalogue.pieces2}" var="pce" itemLabel="#{pce.reference}" itemValue="#{pce.reference}" />
+				</h:selectOneMenu>
+				
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+
+
+</h:body>
+</html>

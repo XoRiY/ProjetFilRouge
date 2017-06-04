@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.3.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<bean name="dataSource" id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/v3?useSSL=false&amp;useLegacyDatetimecode=false"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value=""></property>
+	</bean>
+	<bean id="sessionFactory" name="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="packagesToScan" value="domain"></property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+	<bean id="transactionManager" name="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="appareilInsert" class="domain.Appareil" scope="prototype" />
+	<bean id="pieceInsert" class="domain.Piece" scope="prototype" />
+	<bean id="adresseInsert" class="domain.Adresse" scope="prototype" />
+	<bean id="categorieInsert" class="domain.Categorie" scope="prototype" />
+	<bean id="clientInsert" class="domain.Client" scope="prototype" />
+	<bean id="commandeInsert" class="domain.Commande" scope="prototype" />
+	<bean id="documentInsert" class="domain.Document" scope="prototype" />
+	<bean id="imageInsert" class="domain.Image" scope="prototype" />
+	<bean id="typeInsert" class="domain.Type" scope="prototype" />
+	<bean id="marqueInsert" class="domain.Marque" scope="prototype" />
+	<bean id="ligneDeCommandeInsert" class="domain.LigneDeCommande"
+		scope="prototype" />
+
+
+
+	<bean id="appareilTest" class="domain.Appareil" scope="prototype" />
+	<bean id="pieceTest" class="domain.Piece" scope="prototype" />
+	<bean id="adresseTest" class="domain.Adresse" scope="prototype" />
+	<bean id="categorieTest" class="domain.Categorie" scope="prototype" />
+	<bean id="clientTest" class="domain.Client" scope="prototype" />
+	<bean id="CommandeTest" class="domain.Commande" scope="prototype" />
+	<bean id="documentTest" class="domain.Document" scope="prototype" />
+	<bean id="imageTest" class="domain.Image" scope="prototype" />
+	<bean id="ligneDeCommandeTest" class="domain.LigneDeCommande"
+		scope="prototype" />
+	<bean id="typeTest" class="domain.Type" scope="prototype" />
+	<bean id="marqueTest" class="domain.Marque" scope="prototype" />
+
+
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:annotation-config />
+	<context:component-scan base-package="services, dao" />
+</beans>

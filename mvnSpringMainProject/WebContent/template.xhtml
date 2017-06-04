@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Gestion des Piece</title>
+</h:head>
+<h:body>
+	<div id="top">
+		<ui:insert name="top">
+			<h:form>
+				<h:commandLink value="Chercher une pièce" action="search" /><br/>
+				<h:commandLink value="Compte Client" action="compteUtilisateur" /><br/>
+				<h:commandLink value="Compte Gestionnaire" action="gestionBoutique" /><br/>
+			</h:form>
+		</ui:insert>
+	</div>
+	<div id="body">
+	<ui:insert name="body">
+	
+	</ui:insert>
+	</div>
+	<div id="footer">
+		<ui:insert name="footer">
+			<h:form>
+				<h:commandLink value="Chercher une pièce" action="search" /><br/>
+				<h:commandLink value="Compte Client" action="compteUtilisateur" /><br/>
+				<h:commandLink value="Compte Gestionnaire" action="gestionBoutique" /><br/>
+			</h:form>
+		</ui:insert>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Formulaire d'ajout</title>
+	<h:outputStylesheet library="css" name="default.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="msgs" showDetail="true" />
+		<p:outputLabel value="autocomplete"  />
+		<h:panelGrid columns="2" cellpadding="5">
+		
+			<p:outputLabel value="Marque" for="marque" />
+			<p:autoComplete id="marque" dropdown="true"
+				value="#{autoCompleteView.marqueString}"
+				completeMethod="#{autoCompleteView.completeMarque}"
+				forceSelection="true" maxResults="15"  > 
+			
+
+				</p:autoComplete>
+				<p:outputLabel value="Type" for="type" />
+			<p:autoComplete id="type" dropdown="true"
+				value="#{autoCompleteView.typeString}"
+				completeMethod="#{autoCompleteView.completeType}"
+				forceSelection="true" maxResults="15" > 
+<!-- 				<p:ajax listener="#{autoCompleteView.onMarqueChange}" update="type" /> -->
+				</p:autoComplete>
+		
+			<p:outputLabel value="Appareil" for="appareil" />
+			<p:autoComplete id="appareil" dropdown="true"
+				value="#{autoCompleteView.appareilReference}"
+				completeMethod="#{autoCompleteView.completeAppareil}"
+				forceSelection="true" maxResults="15"  > 
+<!-- 				<p:ajax listener="#{autoCompleteView.onMarqueChange}" update="type" /> -->
+				</p:autoComplete>
+		</h:panelGrid>
+	</h:form>
+		
+	
+	
+	
+	
+	
+	
+	
+	<br/><br/><br/><br/><br/><br/><br/>
+	
+		<h:form>
+		<p:growl id="msgs" showDetail="true" />
+
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel value="Les date et leur manipulation" />
+			<br/>
+			<p:outputLabel value="Date de naissance" for="calendar" />
+			<p:calendar id="calendar" value="#{calendarBean.date}"
+				effect="slideDown" effectDuration="fast" pattern="dd/MM/yyyy"
+				maxdate="now-18y-1d" />
+			<p:outputLabel value="Date de naissance" for="calendar" />
+			<p:calendar id="calendar2" value="#{calendarBean.date}"
+				effect="slideDown" effectDuration="fast" pattern="dd/MM/yyyy"
+				mindate="now+1y" />
+				
+		<p:outputLabel for="french" value="french" />
+        <p:calendar id="french" value="#{calendarView.date1}" locale="fr" navigator="true" pattern="yyyy-MMM-dd" />
+				
+		</h:panelGrid>
+	</h:form>
+		
+</h:body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="marque" value="Name:" style="font-weight:bold" />
+			<p:inputText id="marque" value="#{basicView.marque}">
+				<f:validateLength minimum="2" maximum="20" for="marque" />
+				<f:validateRegex pattern="([A-Za-z ]*)" for="name" />
+			</p:inputText>
+			<p:messages id="messageAjout" for="marque" />
+			<p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+			<h:outputText id="display" value="#{basicView.insert}" />
+		</h:panelGrid>
+		<h3>Remaining Chars</h3>
+		<p:inputTextarea rows="6" cols="33" counter="display2" maxlength="250"
+			counterTemplate="{0} characters remaining." autoResize="true" />
+		<h:outputText id="display2" />
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Formulaire d'ajout</title>
+	<h:outputStylesheet library="css" name="default.css"  />
+</h:head>
+<h:body>
+	 <f:view>
+		<h3>Ajouter une marque</h3>
+	 	<h:form id="form1">
+			<h:panelGrid id="panel" columns="3" cellpadding="5" cellspacing="1">
+				<p:outputLabel for="marque" value="marque"/>
+				<p:inputText id="marque" value="#{marqueBean.marque}" required="true">
+					<f:validateLength minimum="3" maximum="50" />
+					<f:validateRegex pattern="([A-Za-z ]*)" />
+				</p:inputText>
+				<p:messages id="messageAjout" for="marque"/>
+				<p:commandButton action="#{marqueBean.insert}" ajax="false"  value="insérer" />
+				<h3>Lister les marques</h3>
+				<p:dataTable value="#{marqueBean.allMarques}" var="mrq"
+		         styleClass="Panel">
+		 		<p:column>
+		 			<f:facet name="header" >
+		 				<h:outputText value="id" />
+		 			</f:facet>
+		 			<h:outputText value="#{mrq.idMarque}" />
+		 		</p:column>
+		 		<p:column>
+		 			<f:facet name="header" >
+		 				<h:outputText value="marque" />
+		 			</f:facet>
+		 			<h:outputText value="#{mrq.marque}"></h:outputText>
+		 		</p:column>
+		 	</p:dataTable>
+				<p:commandButton action="form0" immediate="true" value="annuler1" />
+			</h:panelGrid>
+			<h:commandLink action="form0" immediate="true" value="retour" />
+	 	</h:form>
+		
+	 	
+		 	
+			
+	 	
+	 </f:view>	
+</h:body>
+</html>
